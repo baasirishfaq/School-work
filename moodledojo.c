@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-// program to convert percentage to alphabetic grade
+// program to convert percentage to alphabetic grade 
+// update == github push is working
 
 int main()
 {
