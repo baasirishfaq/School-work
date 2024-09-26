@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// program to convert percentage to alphabetic grade
+
 int main()
 {
     int grade, lastDigit;
