@@ -1,26 +1,23 @@
 #include <stdio.h>
- 
+
 int main()
 {
-    int traveledMiles, bonus;
-    printf("Enter travelled miles: ");
-    scanf("%d",  &traveledMiles);
+    int aNumber;
 
-    if(traveledMiles > 5000)
-    {
-        bonus = 100;
-    }
-    else if(traveledMiles > 3000)
-    {
-        bonus = 60;
-    }
-    else
-    {
-        bonus = 10;
-    }
+    printf("Enter a number: ");
+    scanf("%d", &aNumber);
 
-    printf("you get %d bonus miles", bonus);
+    // Using the remainder of aNumber divided by 2 as the switch expression
+    switch (aNumber % 2)
+    {
+    case 0:
+        printf("%d is even\n", aNumber);
+        break;
+
+    case 1:
+        printf("%d is odd\n", aNumber);
+        break;
+    }
 
     return 0;
-
-};
+}
