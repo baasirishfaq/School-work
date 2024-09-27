@@ -2,21 +2,32 @@
 
 int main()
 {
-    int aNumber;
+    int num1, num2, num3;
 
-    printf("Enter a number: ");
-    scanf("%d", &aNumber);
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &num1, &num2, &num3);
 
-    // Using the remainder of aNumber divided by 2 as the switch expression
-    switch (aNumber % 2)
+    if (num1 > num2)
     {
-    case 0:
-        printf("%d is even\n", aNumber);
-        break;
-
-    case 1:
-        printf("%d is odd\n", aNumber);
-        break;
+        if (num1 > num3)
+        {
+            printf("The largest number is: %d\n", num1);
+        }
+        else
+        {
+            printf("The largest number is: %d\n", num3);
+        }
+    }
+    else
+    {
+        if (num2 > num3)
+        {
+            printf("The largest number is: %d\n", num2);
+        }
+        else
+        {
+            printf("The largest number is: %d\n", num3);
+        }
     }
 
     return 0;
