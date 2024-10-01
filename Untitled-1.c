@@ -2,11 +2,8 @@
 
 int main()
 {
-    int format, enteredHour, enteredMinute, originalHour, hotelChoice, days = 0, rideChoice = 0, rideCost = 0, dob, sum, discount2, discount1, flag1 = 0, flag2 = 0;
+    int format, tempsubTotal, enteredHour, enteredMinute, originalHour, hotelChoice, days = 0, rideChoice = 0, rideCost = 0, dob, subtotal, sum, discount2, discount1, flag1 = 0, flag2 = 0;
     float hotelCost = 0, flightCost = 0; // Variable to store the cost of the closest flight
-    float subtotal = 0;                  // Change subtotal to float
-    float finalTotal = 0;                // Change finalTotal to float
-    float tempsubTotal = 0;              // Change tempsubTotal to float
 
     // Time selection
     printf("Would you like to enter the time in 12-hour format (enter 1) or 24-hour format (enter 2)? ");
@@ -230,15 +227,58 @@ int main()
         }
     }
 
-    hotelCost = hotelCost * days; // Calculate total hotel cost
+    hotelCost = (hotelCost * days);
+    subtotal = hotelCost + rideCost + flightCost;
 
-    subtotal = flightCost + hotelCost + rideCost; // Calculate subtotal
-    finalTotal = subtotal;                        // No discounts applied in this version
+    printf("Now enter your day of birth to qualify for discount2: ");
+    scanf("%d", &dob);
+    if (dob > 10)
+    {
+        int firstDigit = dob / 10;
+        int secondDigit = dob % 10;
+        sum = firstDigit + secondDigit;
+        if (sum >= 10)
+        {
+            flag1 = 1; // Check if the sum is greater than or equal to 10
+        }
+        if (flag1 == 1)
+        {
+            discount1 = 15; // If true, discount1 is 15
+        }
+        else
+        {
+            discount1 = 0; // Else discount1 is 0
+        }
+    }
+    else
+    {
+        discount1 = 0; // Else discount1 is 0
+    }
 
-    // Display results
-    printf("________________________________\n");
-    printf("Your subtotal is: $%.2f\n", subtotal);      // Display subtotal with two decimal places
-    printf("Your final total is: $%.2f\n", finalTotal); // Display final total with two decimal places
+    // Calculating discount2
+    if (days > 3)
+    {
+        flag2 = 1; // Check if the days are greater than 3
+        discount2 = 10; // If true, discount2 is 10
+    }
+    else
+    {
+        discount2 = 0; // Else discount2 is 0
+    }
+
+    // Print subtotal, discounts, and total cost
+    printf("__________________________\n");
+    printf("Subtotal: $%.2f\n", subtotal);
+    printf("Discount1 (day of birth): %d%%\n", discount1);
+    printf("Discount2 (days staying): %d%%\n", discount2);
+    printf("__________________________\n");
+
+    // Apply discounts to subtotal
+    subtotal -= subtotal * discount1 / 100;
+    subtotal -= subtotal * discount2 / 100;
+
+    printf("Total cost after discounts: $%.2f\n", subtotal);
+    printf("__________________________\n");
 
     return 0;
 }
