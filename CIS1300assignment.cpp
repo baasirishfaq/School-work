@@ -3,7 +3,7 @@
 int main()
 {
     int format, tempsubTotal, enteredHour, enteredMinute, originalHour, hotelChoice, days = 0, rideChoice = 0, rideCost = 0, dob, subtotal, sum, flag1 = 0, flag2 = 0;
-    float discount1, discount2, hotelCost = 0, flightCost = 0; // Variable to store the cost of the closest flight
+    float beforetax = 0, discount1, discount2, hotelCost = 0, flightCost = 0; // Variable to store the cost of the closest flight
 
     // Time selection
     printf("Would you like to enter the time in 12-hour format (enter 1) or 24-hour format (enter 2)? ");
@@ -249,8 +249,9 @@ int main()
     printf("Cost of Hotel for %d days: $%.2f\n", days, hotelCost);
     printf("Cost of Ride: $%.2f\n", rideCost);
     printf("\n");
-    printf("Total cost before tax :$%d\n", subtotal);
-
+    printf("Total cost before tax: $ %d\n", subtotal);
+    printf("\n");
+    
     if (subtotal % 11 == 0)
     {
         flag1 = 1;
@@ -278,23 +279,31 @@ int main()
     if (flag1 == 1 && flag2 == 1)
     {
         float finalTotal = subtotal - discount1 - discount2;
-
+        beforetax = finalTotal;
         printf("Total cost after discount 1 and 2:  $%.2f\n", finalTotal);
     }
     else if (flag1 == 0 && flag2 == 1)
     {
         float finalTotal = subtotal - discount2;
+        beforetax = finalTotal;
         printf("Total cost after discount 1 and 2:  $%.2f\n", finalTotal);
     }
     else if (flag1 == 1 && flag2 == 0)
     {
         float finalTotal = subtotal - discount1;
+        beforetax = finalTotal;
         printf("Total cost after discount 1 and 2:  $%.2f\n", finalTotal);
     }
     else
     {
         printf("Total cost after discount 1 and 2:  $%d\n", subtotal);
     }
+
+    float bill =  (0.13 *  beforetax) +  beforetax;
+
+
+    printf("Finally your total cost after taxes:  $%.2f\n", bill);
+
 
     return 0;
 };
