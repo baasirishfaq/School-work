@@ -1,46 +1,33 @@
 #include <stdio.h>
-
-// program to convert percentage to alphabetic grade 
-// update == github push is working
+#include <stdlib.h>
 
 int main()
 {
-    int grade, lastDigit;
-    printf("Enter a numeric grade in %%: ");
-    scanf("%d", &grade);
-    if (grade >= 90 && grade <= 100)
+    int numInput, i;
+    double Rtotal = 0.0, resistance;
+
+    do
     {
-        printf("Letter grade = A");
-    }
-    else if (grade >= 80 && grade <= 89)
+        printf("Enter the number of resistors (must be greater than 0): ");
+        scanf("%d", &numInput);
+
+        if (numInput <= 0)
+        {
+            printf("Number of resistors must be greater than 0. Please try again.\n");
+        }
+
+    } while (numInput <= 0);
+
+    for (i = 0; i < numInput; i++)
     {
-        printf("Letter grade = B");
-    }
-    else if (grade >= 70 && grade <= 79)
-    {
-        printf("Letter grade = C");
-    }
-    else if (grade >= 60 && grade <= 69)
-    {
-        printf("Letter grade = D");
-    }
-    else if (grade >= 0 && grade <= 59)
-    {
-        printf("Letter grade = F");
-    }
-    else
-    {
-        printf("Error: Grade must be between 0 and 100.");
-    }
-    lastDigit =  grade % 10;
-    if(grade < 100 && lastDigit >= 0  && lastDigit <= 2)
-    {
-        printf("-");
-    }
-    if(lastDigit >= 7  && lastDigit <= 9)
-    {
-        printf("+");
+        printf("Enter value for R%d (in Ohms): ", i + 1);
+        scanf("%lf", &resistance);
+        Rtotal += 1.0 / resistance;
     }
 
+    Rtotal = 1.0 / Rtotal;
 
+    printf("Total Resistance = %.1lf Ohms \n", Rtotal);
+
+    return 0;
 }
