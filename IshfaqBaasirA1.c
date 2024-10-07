@@ -17,7 +17,6 @@ OR
 Running: ./IshfaqBaasirA1
 *********************************************************/
 
-
 int main()
 {
     int format, enteredHour, enteredMinute, originalHour, hotelChoice, days = 0, rideChoice = 0, dob, subtotal, sum, flag1 = 0, flag2 = 0;
