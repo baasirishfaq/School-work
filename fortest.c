@@ -1,50 +1,31 @@
 #include <stdio.h>
 
+int decimalToBinary(int x)
+{
+    int binary[32];
+    int i = 0;
+
+    while (x != 0)
+    {
+        binary[i] = x % 2;  
+        x = x / 2;
+        i++;
+    }
+
+    printf("Binary: ");
+    for (int j = i - 1; j >= 0; j--)  
+    {
+        printf("%d", binary[j]);
+    }
+
+    return 0;
+}
+
 int main()
 {
-    int choice;
-    printf("Enter choice: ");
-    scanf("%d", &choice);
-
-    int radius = 0;
-    char x;
-
-    if (choice == 1)
-    {
-        for (int i = 0; i < 3; i++)
-        {
-            printf("Enter radius: ");
-            scanf("%d", &radius);
-            printf("The area of the circle is: %.2f\n", 3.14 * radius * radius);
-            printf("The circumference of the circle is: %.2f\n", 2 * 3.14 * radius);
-        }
-    }
-    else if (choice == 2)
-    {
-        while (1)
-        {
-            printf("Enter radius: ");
-            scanf("%d", &radius);
-            if (radius == -1)
-            {
-                break;
-            }
-            printf("The area of the circle is: %.2f\n", 3.14 * radius * radius);
-            printf("The circumference of the circle is: %.2f\n", 2 * 3.14 * radius);
-        }
-    }
-    else if (choice == 3)
-    {
-        do
-        {
-            printf("Enter radius: ");
-            scanf("%d", &radius);
-            printf("The area of the circle is: %.2f\n", 3.14 * radius * radius);
-            printf("The circumference of the circle is: %.2f\n", 2 * 3.14 * radius);
-            printf("Do you want to continue? ");
-            scanf(" %c", &x);
-        } while (x == 'y');
-    }
-
+    int number;
+    printf("Insert your number:\n");
+    scanf("%d", &number);
+    decimalToBinary(number);
     return 0;
 }

@@ -1,12 +1,19 @@
 h1 {
-  font-size: 3rem;             /* Large font size for emphasis */
-  font-weight: bold;           /* Bold text */
-  color: #ff5733;              /* Vibrant orange color */
-  text-align: center;          /* Center the text */
-  margin-top: 50px;            /* Add space above */
-  padding: 20px;               /* Add padding around the text */
-  background-color: #333;      /* Dark background */
-  color: #fff;                 /* White text color */
-  border-radius: 10px;         /* Slightly rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow */
+  background-color: black; /* Same background color as the slogan box */
+  color: white; /* White text */
+  padding: 20px; /* Add some space inside the box */
+  margin: 0; /* Remove any margin around the h1 */
+  text-align: center; /* Center the text */
+  border-radius: 50; /* No rounded corners */
+
+}
+
+/* Styling for the slogan box */
+.slogan-box {
+  background-color: rgb(65, 15, 203); /* Same background color as the h1 */
+  color: white; /* White text */
+  padding: 10px; /* Space inside the box */
+  margin: 0; /* Remove margin to join it with the h1 */
+  text-align: center; /* Center the text */
+  border-radius: 50; /* No rounded corners */
 }
